@@ -153,13 +153,13 @@ void process() {
     delay(1);
   }
 
-  HeadLampOn();
-
   for (int i = _START; i < _END; i++) {  // open doors
     servo_A.writeMicroseconds(i);
     servo_B.writeMicroseconds(_START + (_END - i));
     delayMicroseconds(300);
   }
+  
+  HeadLampOn();
 
   while (digitalRead(_FOOT_PEDAL_PIN) == LOW) {  // Wait for button release
     delay(1);
@@ -185,12 +185,20 @@ void HeadLampOff() {
 }
 
 void pulseHeadLamp() {
-  // This is a cheap lamp that has a click to turn on with 3 modes - bright, dim and flashing
-  // (Holding down for a while does that SOS thing)
+  /*
+   * This is a cheap lamp that has a non-latching button click. 
+   * It does not deliver voltage; it just tells a lamp chip to toggle 
+   * through 3 modes then turn off on the 4th click.
+   * 1 press: bright
+   * 2 presses: dim
+   * 3 presses: flashing
+   * (Holding down for a while does the SOS thing)
+   * EBAY: "COB LED Head Torch Headlamp Work Light Headlight Waterproof Outdoor Battery"
+   */
   digitalWrite(_COB_CONTROL_PIN, HIGH);  // simulated button pressed
-  delay(50);
+  delay(10);
   digitalWrite(_COB_CONTROL_PIN, LOW);  // button up
-  delay(50);
+  delay(10);
 }
 
 void buttonISR() {
