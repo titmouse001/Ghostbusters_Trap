@@ -12,7 +12,7 @@ The original toy-grade mechanism (handle-mounted button) has been replaced with 
 After looking at the problem for some time, I decided the best approach was to cut the door-opening mechanism in half using a thin hacksaw blade. 
 This modification allowed me to add two small servos, bypassing the original button-press mechanism that proved difficult to work with. 
 For the smoke effect, I discovered that an e-cigarette atomizer works effectively by blowing from the suction end. 
-I kpet the original heating element but removed the flow detection; the Arduino now manages the timing and voltage delivery, triggering the smoke effect automatically.
+I kept the original heating element but removed the flow detection; the Arduino now manages the timing and voltage delivery, triggering the smoke effect automatically.
 
 Sooner or later, I need to get around to designing a custom PCB to replace the existing point-to-point wiring.
 A 'how-to' guide, schematics, and PCB designs will all be added to this page.
